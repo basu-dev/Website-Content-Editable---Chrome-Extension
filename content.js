@@ -9,21 +9,13 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 });
 
 document.addEventListener("keydown", (event) => {
-  var code = event.code;
-  if (code === "Alt") {
-    // Do nothing.
-    return;
-  }
-  if (event.altKey) {
-    if (event.key == "q") {
-      setDesignMode(!getDesignMode());
-    }
-  }
+  const code = event.code;
+  if (code === "Alt") return; // Do nothing.
+  if (event.altKey && event.key == "q") setDesignMode(!getDesignMode());
 });
 
 function getDesignMode() {
-  let designMode = document.designMode;
-  if (designMode == "on") return true;
+  if (document.designMode == "on") return true;
   return false;
 }
 

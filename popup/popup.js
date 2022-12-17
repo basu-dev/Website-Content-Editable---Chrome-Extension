@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let checkbox = document.getElementById("checkbox");
+  const checkbox = document.getElementById("checkbox");
   checkbox.addEventListener("change", (e) => {
     sendMessage({ type: "checkboxState", value: e.target.checked });
   });
